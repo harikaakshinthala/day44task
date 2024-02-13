@@ -20,7 +20,7 @@ dotenv.config()
 
 
 // DataBase Connection
-databaseConnection()
+//databaseConnection()
 
 
 // Middle Wares
@@ -51,4 +51,9 @@ app.use("/shorturl",usersignin,URLRouter)
 app.use("/",redirectRouter)
 
 // local host
-app.listen(process.env.PORT,()=>console.log(`server started at ${process.env.PORT}`))
+app.listen(process.env.PORT,()=>{
+    databaseConnection()
+
+console.log(`server started at ${process.env.PORT}`)})
+
+

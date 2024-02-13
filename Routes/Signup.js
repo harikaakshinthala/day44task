@@ -9,10 +9,13 @@ import dotenv from 'dotenv'
 // dotenv configuration
 dotenv.config()
 
-const router = express.Router()
+const signupRouter = express.Router()
+
+
+//user
 
 // user signup method
-router.post("/",async(request,response)=>{
+signupRouter.post("/user",async(request,response)=>{
     try {
         // finding user if already exist
         const oldUser = await User.findOne({email:request.body.email})
@@ -58,6 +61,6 @@ router.post("/",async(request,response)=>{
 // verifying email and changing password
 
 
-const signupRouter = router
+//const signupRouter = router
 
 export default signupRouter;
