@@ -15,7 +15,7 @@ const signupRouter = express.Router()
 //user
 
 // user signup method
-signupRouter.post("/user",async(request,response)=>{
+signupRouter.post("/",async(request,response)=>{
     try {
         // finding user if already exist
         const oldUser = await User.findOne({email:request.body.email})
@@ -37,6 +37,7 @@ signupRouter.post("/user",async(request,response)=>{
         // genarating random string
        
         const tokenurl = generateToken(newUser._id)
+        console.log(tokenurl)
 
         // email confirmation process
         const newEmailConfirmationUrl = await new ConfirmationMail(
