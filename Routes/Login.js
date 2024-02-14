@@ -22,7 +22,7 @@ router.post("/",async(request,response)=>{
 
          if(!validatePassword) return response.status(400).json({message:"User Email Or Password Incorrect"})
         const Token = generateToken(user._id)
-         response.status(200).json({message:"Successfully Logedin",token:Token})
+         response.status(200).json({message:"Successfully Loggedin",token:Token})
     } catch (error) {
         console.log("Login error",error)
         return response.status(500).json({message:"Internal server error"})
